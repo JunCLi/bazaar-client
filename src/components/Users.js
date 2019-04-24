@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { Query } from 'react-apollo'
-import { myQuery } from '../graphql-queries/queries.js'
+import { myQuery } from '../graphql-queries/queries'
 
 import Navbar from './Navbar'
 
