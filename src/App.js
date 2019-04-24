@@ -1,5 +1,6 @@
 import React from 'react'
 import './App.css'
+import './Normalize.css'
 
 import { ApolloProvider, Query } from 'react-apollo'
 import apolloClient from './apolloclient'

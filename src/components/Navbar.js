@@ -30,9 +30,6 @@ const NavBar = (props) => {
         <Button color='inherit'>
           <Link to='/login/'>Login</Link>
         </Button>
-        <Button color='inherit'>
-          <Link to='/placeholder/'>PlaceholderSignup</Link>
-        </Button>
 			</AppBar>
 		</nav>
 	)

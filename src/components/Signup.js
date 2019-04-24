@@ -3,22 +3,17 @@ import React from 'react'
 import { Formik } from 'formik'
 import * as Yup from 'yup'
 
-// import { Mutation } from 'react-apollo'
-// import { signUpMutation } from '../graphql-queries/mutations'
+import { Mutation } from 'react-apollo'
+import { signUpMutation } from '../graphql-queries/mutations'
 
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 import FormHelperText from '@material-ui/core/FormHelperText'
 
-import Navbar from './Navbar'
-
 const Signup = () => {
 	return (
 		<div>
-			<Navbar />
-			<h1>Sign up</h1>
-
-			{/* <Mutation
+			<Mutation
 				mutation={signUpMutation}
 				onError={(error) => {
 					console.log(error)
@@ -27,8 +22,8 @@ const Signup = () => {
 					console.log('Response: ', response)
 					alert("We're gucci")
 				}}
-			> */}
-				{/* {(signUp, { data }) => ( */}
+			>
+				{(signUp) => (
 					<Formik
 						initialValues={{
 							userEmail: '',
@@ -36,21 +31,13 @@ const Signup = () => {
 							confirmPassword: '',
 						}}
 						onSubmit={(values, { setSubmitting }) => {
-							console.log(values)
-							// signUp({ variables: {input: values}})
+							signUp({ variables: {input: {
+								email: values.userEmail,
+								password: values.password
+							}}})
 							setSubmitting(false)
 						}}
 						validationSchema={Yup.object().shape({
-							username: Yup.string()
-								.min(
-									4,
-									'Username is too short. It needs to be 4 or more characters'
-								)
-								.matches(
-									/^([a-zA-Z0-9_-]+)$/,
-									'Invalid username. Your username can only contain alphanumeric characters.'
-								)
-								.required(),
 							userEmail: Yup.string()
 								.email()
 								.required(),
@@ -87,7 +74,7 @@ const Signup = () => {
 							} = formikProps
 
 							return (
-								<form className='signup' onSubmit={handleSubmit}>
+								<form onSubmit={handleSubmit}>
 									<TextField
 										type='text'
 										id='userEmail'
@@ -169,8 +156,8 @@ const Signup = () => {
 							)
 						}}
 					</Formik>
-				{/* )} */}
-			{/* // </Mutation> */}
+				)}
+			</Mutation>
 		</div>
 	)
 }
