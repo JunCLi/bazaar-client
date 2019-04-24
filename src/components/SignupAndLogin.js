@@ -1,32 +1,32 @@
-import React from 'react'
+// import React from 'react'
 
-import Button from '@material-ui/core/Button'
+// import Button from '@material-ui/core/Button'
 
-import Navbar from './Navbar'
+// import Navbar from './Navbar'
 
-const SignupAndLogin = () => {
-  const switchTabs = () => {
+// const SignupAndLogin = () => {
+//   const switchTabs = () => {
     
-  }
+//   }
 
-  return (
-    <main>
-      <Navbar />
-      <section>
-        <div>
-          <Button
-            type='button'
-            onClick={}
-          >Sign Up</Button>
+//   return (
+//     <main>
+//       <Navbar />
+//       <section>
+//         <div>
+//           <Button
+//             type='button'
+//             onClick={}
+//           >Sign Up</Button>
 
-          <Button
-            type='button'
-            onClick={}
-          >Sign Up</Button>
-        </div>
-      </section>
-    </main>
-  )
-}
+//           <Button
+//             type='button'
+//             onClick={}
+//           >Sign Up</Button>
+//         </div>
+//       </section>
+//     </main>
+//   )
+// }
 
-export default SignupAndLogin
+// export default SignupAndLogin
