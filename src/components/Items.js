@@ -1,7 +1,9 @@
 import React from 'react'
-import { Query } from 'react-apollo'
 
+import { Query } from 'react-apollo'
 import { myQuery } from '../graphql-queries/queries'
+
+import Navbar from './Navbar'
 
 const Items = () => {
   return (
@@ -13,6 +15,7 @@ const Items = () => {
 
           return (
             <div>
+              <Navbar />
               <h1>Items</h1>
               <ul>
                 {!loading && !err && data.getAllItems.map(item => {

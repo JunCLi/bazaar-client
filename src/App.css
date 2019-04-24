@@ -19,6 +19,10 @@ body {
   margin: 10px auto;
 }
 
+h1 {
+  text-align: center;
+}
+
 /*
 =========================
 Navigation styles
@@ -31,28 +35,27 @@ Navigation styles
   justify-content: center;
   margin: 20px auto;
 }
-
+*/
 nav a {
   margin: 0 10px;
 
   text-decoration: none;
-  color: #111;
+  color: #eee;
   font-size: 1.25em;
-} */
+} 
 
 /*
 =========================
-Login styles
+Signup/Login styles
 =========================
 */
 
+.signup {
+  display: flex;
+  flex-flow: column;
 
-/* .login-component h1 {
-  text-align: center;
+  width: 80%;
+  min-width: 300px;
+  max-width: 600px;
+  margin: 0 auto;
 }
-
-
-
-.login-component form {
-
-} */

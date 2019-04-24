@@ -2,20 +2,30 @@ import React from 'react'
 import { Formik } from 'formik'
 import * as Yup from 'yup'
 
-const Login = () => {
+import TextField from '@material-ui/core/TextField'
+import Button from '@material-ui/core/Button'
+import FormHelperText from '@material-ui/core/FormHelperText'
+
+import Navbar from './Navbar'
+
+const Signup = () => {
   return (
-    <div className='login-component'>
+    <div>
+			<Navbar />
       <h1>Sign up</h1>
+
       <Formik
         initialValues={{
           userEmail: '',
           password: '',
           confirmPassword: '',
-        }}
+				}}
+				
         onSubmit={(values, { setSubmitting }) => {
 					console.log(values)
 					setSubmitting(false)
 				}}
+				
         validationSchema={Yup.object().shape({
 					username: Yup.string()
 						.min(
@@ -49,6 +59,7 @@ const Login = () => {
 						.required(),
 				})}
 			>
+
         {formikProps => {
           const {
             values, 
@@ -60,64 +71,84 @@ const Login = () => {
             handleBlur,
             handleSubmit,
             handleReset,
-          } = formikProps
+					} = formikProps
+					
           return (
-            <form onSubmit={handleSubmit}>
-              <input
+            <form className='signup' onSubmit={handleSubmit}>
+              <TextField
                 type='text'
                 id='userEmail'
                 name='userEmail'
-                placeholder='Email'
+                label='Email'
                 value={values.userEmail}
                 onChange={handleChange}
-                onBlur={handleBlur}
+								onBlur={handleBlur}
+								margin='normal'
               />
-              {errors.userEmail && touched.userEmail && (
-								<div className='form-error'>{errors.userEmail}</div>
-              )}
+							{errors.userEmail && touched.userEmail ? 
+								<FormHelperText className='form-error'>
+									{errors.userEmail}
+								</FormHelperText> :
+								<FormHelperText className='form-helper'>
+									your email
+								</FormHelperText>
+							}
               
-              <input
+              <TextField
 								type='password'
 								id='password'
 								name='password'
-								placeholder={`Password`}
+								label='Password'
 								value={values.password}
 								onChange={handleChange}
 								onBlur={handleBlur}
+								margin='normal'
 							/>
-							{errors.password && touched.password && (
-								<div className='form-error'>{errors.password}</div>
-							)}
+							{errors.password && touched.password ? 
+								<FormHelperText className='form-error'>
+									{errors.password}
+								</FormHelperText> :
+								<FormHelperText className='form-helper'>
+									your password
+								</FormHelperText>
+							}
+              
 
-							<input
+							<TextField
 								type='password'
 								id='confirmPassword'
 								name='confirmPassword'
-								placeholder={`Confirm Password`}
+								label='Confirm Password'
 								value={values.confirmPassword}
 								onChange={handleChange}
 								onBlur={handleBlur}
+								margin='normal'
 							/>
-							{errors.confirmPassword && touched.confirmPassword && (
-								<div className='form-error'>{errors.confirmPassword}</div>
-              )}
+							{errors.confirmPassword && touched.confirmPassword ? 
+								<FormHelperText className='form-error'>
+									{errors.confirmPassword}
+								</FormHelperText> :
+								<FormHelperText className='form-helper'>
+									your password
+								</FormHelperText>
+							}
               
               <section className='signup-form-btns'>
-								<button
+								<Button
 									className='btn-submit'
 									type='submit'
 									disabled={isSubmitting}
 								>
 									Sign Up
-								</button>
-								<button
+								</Button>
+								<Button
 									className='btn-reset'
 									type='button'
 									disabled={!dirty || isSubmitting}
 									onClick={handleReset}
 								>
 									Reset
-								</button>
+								</Button>
 							</section>
             </form>
           )
@@ -127,4 +158,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default Signup

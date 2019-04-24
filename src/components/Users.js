@@ -1,7 +1,9 @@
 import React from 'react'
-import { Query } from 'react-apollo'
 
+import { Query } from 'react-apollo'
 import { myQuery } from '../graphql-queries/queries.js'
+
+import Navbar from './Navbar'
 
 const Users = () => {
 	return (
@@ -13,6 +15,7 @@ const Users = () => {
 
           return (
             <div>
+              <Navbar />
               <h1>Users</h1>
               <ul>
                 {!loading &&

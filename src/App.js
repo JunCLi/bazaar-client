@@ -5,6 +5,7 @@ import { ApolloProvider, Query } from 'react-apollo'
 import apolloClient from './apolloclient'
 import { authenticationQuery } from './graphql-queries/queries.js'
 
+import theme from './theme'
 import AppRouter from './AppRouter'
 import Loading from './components/Loading'
 
