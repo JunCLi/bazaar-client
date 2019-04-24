@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import './App.css'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import { ApolloProvider, Query } from 'react-apollo'
+import apolloClient from './apolloclient'
+import { authenticationQuery } from './graphql-queries/queries.js'
+
+import AppRouter from './AppRouter'
+import Loading from './components/Loading'
+
+const App = () => {
+	return (
+    <ApolloProvider client={apolloClient}>
+      <Query query={authenticationQuery}>
+        {({loading, err, data}) => {
+          if (loading) return <Loading />
+          if (err) return <div>Error: {JSON.stringify(err)}</div>
+
+          return (
+            <div>
+              <AppRouter />
+            </div>
+          )
+        }}
+      </Query>
+    </ApolloProvider>
+	)
 }
 
-export default App;
+export default App
