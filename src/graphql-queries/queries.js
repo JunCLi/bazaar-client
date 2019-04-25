@@ -1,14 +1,25 @@
 import gql from 'graphql-tag'
 
+const getBasicItemsQuery = gql`query{
+  getAllItems{
+    id
+    item_owner_name
+    item_name
+    item_price
+  }
+}`
+
 const myQuery=gql`query{
   getAllItems{
     id
     item_owner_id
+    item_owner_name
     item_name
     item_type
     item_status
     item_price
     item_inventory
+    item_description
     date_added
   }
   getAllUsers{
@@ -17,7 +28,6 @@ const myQuery=gql`query{
     user_status
     user_date_created
     fullname
-    username
   }
 }`
 
@@ -39,9 +49,7 @@ const authenticationQuery= gql`
     user_status
     user_date_created
     fullname
-    username
   }
-  }
-`
+}`
 
-export { myQuery, authenticationQuery }
+export { myQuery, authenticationQuery, getBasicItemsQuery }
