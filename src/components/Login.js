@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { Formik } from 'formik'
-import * as Yup from 'yup'
+import { loginValidation } from '../validationSchemas'
 
 import { Mutation } from 'react-apollo'
 import { loginMutation } from '../graphql-queries/mutations'
@@ -9,6 +9,11 @@ import { loginMutation } from '../graphql-queries/mutations'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 import FormHelperText from '@material-ui/core/FormHelperText'
+
+const initialFormValues = {
+  userEmail: '',
+  password: '',
+}
 
 const Signup = () => {
 	return (
@@ -24,10 +29,7 @@ const Signup = () => {
 			>
 				{(login) => (
 					<Formik
-						initialValues={{
-							userEmail: '',
-							password: '',
-						}}
+						initialValues={initialFormValues}
 						onSubmit={(values, { setSubmitting }) => {
 							login({ variables: {input: {
 								email: values.userEmail,
@@ -35,21 +37,7 @@ const Signup = () => {
 							}}})
 							setSubmitting(false)
 						}}
-						validationSchema={Yup.object().shape({
-							userEmail: Yup.string()
-								.email()
-								.required(),
-							password: Yup.string()
-								.min(
-									8,
-									'Password is too short. It needs to be 8 or more characters'
-								)
-								.matches(
-									/[a-zA-Z0-9]/,
-									'Invalid password. Your password can only contain alphanumeric characters.'
-								)
-								.required()
-						})}
+						validationSchema={loginValidation}
 					>
 						{formikProps => {
 							const {
@@ -78,12 +66,11 @@ const Signup = () => {
                       margin='normal'
                     />
                     {errors.userEmail && touched.userEmail ? (
-                      <FormHelperText className='form-error'>
+                      <FormHelperText className='form-helper form-error'>
                         {errors.userEmail}
                       </FormHelperText>
                     ) : (
                       <FormHelperText className='form-helper'>
-                        your email
                       </FormHelperText>
                     )}
                   </div>
@@ -100,12 +87,11 @@ const Signup = () => {
                       margin='normal'
                       />
                     {errors.password && touched.password ? (
-                      <FormHelperText className='form-error'>
+                      <FormHelperText className='form-helper form-error'>
                         {errors.password}
                       </FormHelperText>
                     ) : (
                       <FormHelperText className='form-helper'>
-                        your password
                       </FormHelperText>
                     )}
                   </div>
