@@ -1,6 +1,6 @@
 import gql from 'graphql-tag'
 
-const signUpMutation = gql`
+export const signUpMutation = gql`
   mutation signUpVars($input: SignUpObject!){
     signUp(input: $input) {
       message
@@ -8,7 +8,7 @@ const signUpMutation = gql`
   }
 `
 
-const loginMutation = gql`
+export const loginMutation = gql`
   mutation loginVars($input: LogInObject!){
     login(input: $input) {
       message
@@ -16,4 +16,10 @@ const loginMutation = gql`
   }
 `
 
-export { signUpMutation, loginMutation }
+export const addItemMutation = gql`
+  mutation addItemVars($input: RegisterItemObject!){
+    registerItem(input: $input) {
+      message
+    }
+  }
+`

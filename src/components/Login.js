@@ -53,7 +53,7 @@ const Signup = () => {
 							} = formikProps
 
 							return (
-								<form onSubmit={handleSubmit}>
+								<form className='material-form' onSubmit={handleSubmit}>
                   <div className='form-field'>
                     <TextField
                       type='text'

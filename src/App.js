@@ -6,8 +6,8 @@ import { ApolloProvider, Query } from 'react-apollo'
 import apolloClient from './apolloclient'
 import { authenticationQuery } from './graphql-queries/queries.js'
 
-// import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider'
-// import theme from './theme'
+import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider'
+import theme from './theme'
 
 import AppRouter from './AppRouter'
 import Loading from './components/Loading'
@@ -15,7 +15,7 @@ import Loading from './components/Loading'
 const App = () => {
 	return (
     <ApolloProvider client={apolloClient}>
-      {/* <MuiThemeProvider theme={theme}> */}
+      <MuiThemeProvider theme={theme}>
         <Query query={authenticationQuery}>
           {({loading, err, data}) => {
             if (loading) return <Loading />
@@ -28,7 +28,7 @@ const App = () => {
             )
           }}
         </Query>
-      {/* </MuiThemeProvider> */}
+      </MuiThemeProvider>
     </ApolloProvider>
 	)
 }

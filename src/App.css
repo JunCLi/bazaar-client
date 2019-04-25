@@ -29,24 +29,65 @@ Navigation styles
 =========================
 */
 
-/* nav {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: center;
-  margin: 20px auto;
-}
-*/
 nav a {
   margin: 0 10px;
 
-  text-decoration: none;
   color: #eee;
   font-size: 1.25em;
 } 
 
+nav a:hover {
+  color: #eee;
+  text-decoration: none;
+} 
+
 /*
 =========================
-Signup/Login styles
+General Form styles
+=========================
+*/
+
+form.material-form {
+  margin: 10px auto;
+}
+
+.material-form .form-field > div {
+  width: 100%;
+}
+
+.material-form .form-field label {
+  margin-left: 5px;
+}
+
+.material-form .form-helper {
+  width: 100%;
+  margin-top: 0;
+}
+
+.material-form .form-error {
+  color: red;
+}
+
+.material-form .signup-form-btns {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+
+  margin: 20px 0;
+}
+
+.material-form .signup-form-btns button {
+  margin: 0 10px;
+  padding: 10px 20px;
+}
+
+.material-form .signup-form-btns .btn-submit {
+  border: 1px solid #444;
+}
+
+/*
+=========================
+Signup/Login Form styles
 =========================
 */
 
@@ -58,46 +99,70 @@ Signup/Login styles
   min-width: 300px;
   max-width: 400px;
   margin: 50px auto;
+  padding: 30px;
+
+  border: 1px solid #bbb;
+  border-radius: 10px;
+  box-shadow: 1px 5px 5px #aaa;
 }
 
 .signup .login-form-tab {
   border-bottom: 1px solid #444;
 }
 
-.signup form {
-  margin: 10px auto;
+/*
+=========================
+AddItem Form styles
+=========================
+*/
+
+.add-item {
+  padding: 30px;
+
+  border: 1px solid #bbb;
+  border-radius: 10px;
+  box-shadow: 1px 5px 5px #aaa;
 }
 
-.signup .form-field > div {
-  width: 100%;
+.add-item {
+  display: flex;
+  flex-flow: column;
+
+  width: 80%;
+  min-width: 300px;
+  max-width: 400px;
+  margin: 50px auto;
 }
 
-.signup .form-field label {
-  margin-left: 5px;
-}
-
-.signup .form-helper {
-  width: 100%;
-  margin-top: 0;
-}
-
-.signup .form-error {
-  color: red;
-}
-
-.signup .signup-form-btns {
+.add-item .price-and-quantity {
   display: flex;
   flex-flow: row nowrap;
-  justify-content: center;
-
-  margin: 20px 0;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.signup .signup-form-btns button {
-  margin: 0 10px;
-  padding: 10px 20px;
+.add-item .price-and-quantity > div {
+  margin: 0 20px;
 }
 
-.signup .signup-form-btns .btn-submit {
-  border: 1px solid #444;
+.add-item .price-and-quantity > div:first-child {
+  margin-left: 0;
 }
+
+.add-item .price-and-quantity > div:last-child {
+  margin-right: 0;
+}
+
+.add-item .toggle-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin: 20px auto;
+}
+
+/*
+=========================
+Display Items styles
+=========================
+*/
