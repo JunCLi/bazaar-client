@@ -20,7 +20,6 @@ const Signup = () => {
 				}}
 				onCompleted={response => {
 					console.log('Response: ', response)
-					alert("We're gucci")
 				}}
 			>
 				{(signUp) => (
@@ -75,65 +74,71 @@ const Signup = () => {
 
 							return (
 								<form onSubmit={handleSubmit}>
-									<TextField
-										type='text'
-										id='userEmail'
-										name='userEmail'
-										label='Email'
-										value={values.userEmail}
-										onChange={handleChange}
-										onBlur={handleBlur}
-										margin='normal'
-									/>
-									{errors.userEmail && touched.userEmail ? (
-										<FormHelperText className='form-error'>
-											{errors.userEmail}
-										</FormHelperText>
-									) : (
-										<FormHelperText className='form-helper'>
-											your email
-										</FormHelperText>
-									)}
+									<div className='form-field'>
+										<TextField
+											type='text'
+											id='userEmail'
+											name='userEmail'
+											label='Email'
+											value={values.userEmail}
+											onChange={handleChange}
+											onBlur={handleBlur}
+											margin='normal'
+											/>
+										{errors.userEmail && touched.userEmail ? (
+											<FormHelperText className='form-error'>
+												{errors.userEmail}
+											</FormHelperText>
+										) : (
+											<FormHelperText className='form-helper'>
+												your email
+											</FormHelperText>
+										)}
+									</div>
 
-									<TextField
-										type='password'
-										id='password'
-										name='password'
-										label='Password'
-										value={values.password}
-										onChange={handleChange}
-										onBlur={handleBlur}
-										margin='normal'
-									/>
-									{errors.password && touched.password ? (
-										<FormHelperText className='form-error'>
-											{errors.password}
-										</FormHelperText>
-									) : (
-										<FormHelperText className='form-helper'>
-											your password
-										</FormHelperText>
-									)}
+									<div className='form-field'>
+										<TextField
+											type='password'
+											id='password'
+											name='password'
+											label='Password'
+											value={values.password}
+											onChange={handleChange}
+											onBlur={handleBlur}
+											margin='normal'
+											/>
+										{errors.password && touched.password ? (
+											<FormHelperText className='form-error'>
+												{errors.password}
+											</FormHelperText>
+										) : (
+											<FormHelperText className='form-helper'>
+												your password
+											</FormHelperText>
+										)}
+									</div>
 
-									<TextField
-										type='password'
-										id='confirmPassword'
-										name='confirmPassword'
-										label='Confirm Password'
-										value={values.confirmPassword}
-										onChange={handleChange}
-										onBlur={handleBlur}
-										margin='normal'
-									/>
-									{errors.confirmPassword && touched.confirmPassword ? (
-										<FormHelperText className='form-error'>
-											{errors.confirmPassword}
-										</FormHelperText>
-									) : (
-										<FormHelperText className='form-helper'>
-											your password
-										</FormHelperText>
-									)}
+									<div className='form-field'>
+										<TextField
+											type='password'
+											id='confirmPassword'
+											name='confirmPassword'
+											label='Confirm Password'
+											value={values.confirmPassword}
+											onChange={handleChange}
+											onBlur={handleBlur}
+											margin='normal'
+											/>
+										{errors.confirmPassword && touched.confirmPassword ? (
+											<FormHelperText className='form-error'>
+												{errors.confirmPassword}
+											</FormHelperText>
+										) : (
+											<FormHelperText className='form-helper'>
+												your password
+											</FormHelperText>
+										)}
+									</div>
 
 									<section className='signup-form-btns'>
 										<Button

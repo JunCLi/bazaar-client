@@ -60,9 +60,26 @@ Signup/Login styles
   margin: 0 auto;
   padding: 20px;
 
-  border: 2px solid #444;
+  /* border: 2px solid #444; */
 }
 
 .signup .login-form-tab {
   border-bottom: 1px solid #444;
+}
+
+.signup form {
+  padding: 10%;
+}
+
+.signup .form-field {
+  width: 80%;
+  margin: 10px auto;
+}
+
+.signup .form-field > div {
+  width: 100%;
+}
+
+.signup .form-helper {
+  width: 100%;
 }
