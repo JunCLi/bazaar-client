@@ -6,6 +6,7 @@ const getBasicItemsQuery = gql`query{
     item_owner_name
     item_name
     item_price
+    date_added
   }
 }`
 

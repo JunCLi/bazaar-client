@@ -13,153 +13,28 @@ body {
   font-size: 16px;
 }
 
-#root > div {
-  width: 100%;
-  max-width: 1024px;
-  margin: 10px auto;
+#root {
+  min-height: 100vh;
 }
 
 h1 {
   text-align: center;
 }
 
-/*
-=========================
-Navigation styles
-=========================
-*/
-
-nav a {
-  margin: 0 10px;
-
-  color: #eee;
-  font-size: 1.25em;
-} 
-
-nav a:hover {
-  color: #eee;
+body a {
   text-decoration: none;
-} 
-
-/*
-=========================
-General Form styles
-=========================
-*/
-
-form.material-form {
-  margin: 10px auto;
 }
 
-.material-form .form-field > div {
+body a:hover {
+  text-decoration: none;
+}
+
+.container {
   width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
-.material-form .form-field label {
-  margin-left: 5px;
-}
-
-.material-form .form-helper {
-  width: 100%;
-  margin-top: 0;
-}
-
-.material-form .form-error {
-  color: red;
-}
-
-.material-form .signup-form-btns {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: center;
-
-  margin: 20px 0;
-}
-
-.material-form .signup-form-btns button {
-  margin: 0 10px;
-  padding: 10px 20px;
-}
-
-.material-form .signup-form-btns .btn-submit {
-  border: 1px solid #444;
-}
-
-/*
-=========================
-Signup/Login Form styles
-=========================
-*/
-
-.signup {
-  display: flex;
-  flex-flow: column;
-
-  width: 80%;
-  min-width: 300px;
-  max-width: 400px;
-  margin: 50px auto;
-  padding: 30px;
-
-  border: 1px solid #bbb;
-  border-radius: 10px;
-  box-shadow: 1px 5px 5px #aaa;
-}
-
-.signup .login-form-tab {
-  border-bottom: 1px solid #444;
-}
-
-/*
-=========================
-AddItem Form styles
-=========================
-*/
-
-.add-item {
-  padding: 30px;
-
-  border: 1px solid #bbb;
-  border-radius: 10px;
-  box-shadow: 1px 5px 5px #aaa;
-}
-
-.add-item {
-  display: flex;
-  flex-flow: column;
-
-  width: 80%;
-  min-width: 300px;
-  max-width: 400px;
-  margin: 50px auto;
-}
-
-.add-item .price-and-quantity {
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.add-item .price-and-quantity > div {
-  margin: 0 20px;
-}
-
-.add-item .price-and-quantity > div:first-child {
-  margin-left: 0;
-}
-
-.add-item .price-and-quantity > div:last-child {
-  margin-right: 0;
-}
-
-.add-item .toggle-list-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  margin: 20px auto;
-}
 
 /*
 =========================

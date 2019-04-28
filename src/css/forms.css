@@ -1,0 +1,125 @@
+/*
+=========================
+General Form styles
+=========================
+*/
+
+form.material-form {
+  margin: 10px auto;
+}
+
+.material-form .form-field > div {
+  width: 100%;
+}
+
+.material-form .form-field label {
+  margin-left: 5px;
+}
+
+.material-form .form-helper {
+  width: 100%;
+  margin-top: 0;
+}
+
+.material-form .form-error {
+  color: red;
+}
+
+.material-form .signup-form-btns {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+
+  margin: 20px 0;
+}
+
+.material-form .signup-form-btns button {
+  margin: 0 10px;
+  padding: 10px 20px;
+}
+
+.material-form .signup-form-btns .btn-submit {
+  border: 1px solid #444;
+}
+
+
+/*
+=========================
+Signup/Login Form styles
+=========================
+*/
+
+.signup {
+  display: flex;
+  flex-flow: column;
+
+  width: 80%;
+  min-width: 300px;
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 30px;
+
+  border: 1px solid #bbb;
+  border-radius: 10px;
+  box-shadow: 1px 5px 5px #aaa;
+}
+
+.signup .login-form-tab {
+  border-bottom: 1px solid #444;
+}
+
+.signup .login-form-tab:focus {
+  outline: none;
+  
+}
+
+/*
+=========================
+AddItem Form styles
+=========================
+*/
+
+.add-item {
+  padding: 30px;
+
+  border: 1px solid #bbb;
+  border-radius: 10px;
+  box-shadow: 1px 5px 5px #aaa;
+}
+
+.add-item {
+  display: flex;
+  flex-flow: column;
+
+  width: 80%;
+  min-width: 300px;
+  max-width: 400px;
+  margin: 50px auto;
+}
+
+.add-item .price-and-quantity {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+.add-item .price-and-quantity > div {
+  width: 100%;
+  margin: 0 20px;
+}
+
+.add-item .price-and-quantity > div:first-child {
+  margin-left: 0;
+}
+
+.add-item .price-and-quantity > div:last-child {
+  margin-right: 0;
+}
+
+.add-item .toggle-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin: 20px auto;
+}

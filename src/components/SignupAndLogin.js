@@ -21,7 +21,7 @@ const SignupAndLogin = () => {
       <section className="signup">
         <Tabs
           value={loginTab}
-          indicatorColor='primary'
+          indicatorColor='secondary'
           variant='fullWidth'
           onChange={handleLoginTabChange}
         >

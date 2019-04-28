@@ -45,13 +45,11 @@ export const addItemValidation = Yup.object().shape({
       4,
       'Name is too short. It needs to be 4 or more characters.'
     )
-    .matches(
-      /^[a-zA-Z0-9!@#$%^&*)(+=._-]+$/g,
-      'Invalid name. invalid character inputed.'
-    )
     .required('Missing item name.'),
   itemPrice: Yup.number()
     .required('Missing item price.'),
   itemInventory: Yup.number()
     .required('Missing item quantity'),
+  itemType: Yup.string(),
+  itemDescription: Yup.string()
 })

@@ -2,26 +2,29 @@ import React from 'react'
 
 import { Link } from 'react-router-dom'
 
-import { withStyles } from '@material-ui/core/styles'
 import AppBar from '@material-ui/core/AppBar'
 import Button from '@material-ui/core/Button'
 
-const styles = {
-	appbar: {
-		justifyContent: 'center',
-		flexFlow: 'row nowrap',
-	},
-}
+import '../css/navigation.css'
 
-const NavBar = props => {
-	const { classes } = props
+const NavBar = () => {
 	return (
-		<nav>
-			<AppBar className={classes.appbar} position='static' color='primary'>
-				<Link to='/'>
-					<Button color='inherit'>Home</Button>
-				</Link>
+		<nav >
+			<AppBar className='primary-navigation' position='static' color='primary'>
+				<div className='container'>
+					<Link to='/'>
+						<Button className='nav-home' color='inherit'>Bazaar</Button>
+					</Link>
 
+					<Link to='/login/'>
+						<Button className='login' color='inherit'>Login</Button>
+					</Link>
+
+				</div>
+
+			</AppBar>
+			
+				{/* 
 				<Link to='/users/'>
 					<Button color='inherit'>Users</Button>
 				</Link>
@@ -30,15 +33,13 @@ const NavBar = props => {
 					<Button color='inherit'>Items</Button>
 				</Link>
 
-				<Link to='/login/'>
-					<Button color='inherit'>Login</Button>
-				</Link>
+				
 
 				<Link to='/add-item/'>
 					<Button color='inherit'>Add Item</Button>
-				</Link>
-			</AppBar>
+				</Link> */}
+			
 		</nav>
 	)
 }
-export default withStyles(styles)(NavBar)
+export default NavBar

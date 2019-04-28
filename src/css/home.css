@@ -1,0 +1,83 @@
+/*
+=========================
+Banner styles
+=========================
+*/
+
+.home .home-banner {
+  background-color: #ffecb3;
+}
+
+.home .home-banner .container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 150px;
+  grid-template-areas: 
+    "a a b b"
+    "c d e f";
+
+  padding: 100px 100px;
+}
+
+.home .banner-text {
+  grid-area: a;
+}
+
+.home .banner-text h1 {
+  text-align: left;
+  font-size: 3.5em;
+}
+
+.home .banner-text .slogan {
+  font-size: 2em;
+}
+
+.home .banner-text .slogan span {
+  font-style: italic;
+}
+
+.home .banner-text p {
+  font-size: 1.25em;
+}
+
+.home .btn-shop-now {
+  padding: 10px 20px;
+}
+
+
+
+.home .banner-image {
+  grid-area: b;
+  background: url('../images/unsplash-jonny-caspari.jpg') no-repeat center;
+  background-size: 100%;
+
+  padding: 10px;
+
+  border: 0px solid transparent;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px #999;
+}
+
+/*
+=========================
+Most Recent Section styles
+=========================
+*/
+
+
+.home h2 {
+  margin: 50px auto;
+
+  font-size: 2em;
+  text-align: center;
+}
+
+.home .recent-items {
+  margin: 25px auto;
+}
+
+.home .tile-subtitle {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}

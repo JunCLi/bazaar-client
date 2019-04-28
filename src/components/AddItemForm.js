@@ -10,16 +10,40 @@ import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 import FormHelperText from '@material-ui/core/FormHelperText'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
-import FormLabel from '@material-ui/core/FormLabel'
-import Switch from '@material-ui/core/Switch'
 import { FormGroup } from '@material-ui/core';
+import FormLabel from '@material-ui/core/FormLabel'
+import MenuItem from '@material-ui/core/MenuItem'
+import Switch from '@material-ui/core/Switch'
+
+import '../css/forms.css'
 
 const initialFormValues = {
   itemName: '',
   itemPrice: '',
   itemInventory: '',
   listItem: true,
+  itemType: '',
+  itemDescription: '',
 }
+
+const itemTypes = [
+  {
+    value: 'a super item',
+    label: 'A super Item'
+  },
+  {
+    value: 'an item',
+    label: 'An Item'
+  },
+  {
+    value: 'not a item',
+    label: 'Not a item'
+  },
+  {
+    value: 'a scam item',
+    label: 'A Scam Item'
+  },
+]
 
 const AddItemForm = () => {
   return (
@@ -30,14 +54,23 @@ const AddItemForm = () => {
           console.log(error)
         }}
         onCompleted={response => {
-          console.log('Response: ', response)
+          alert('item submitted')
         }}
       >
         {(registerItem) => (
           <Formik
             initialValues={initialFormValues}
             onSubmit={(values, { setSubmitting }) => {
-              console.log(values)
+              const itemStatus = values.listItem ? 'listed' : 'unlisted'
+              registerItem({ variables: {input: {
+                item_name: values.itemName,
+                item_owner_id: 1,
+                item_status: itemStatus,
+                item_type: values.itemType,
+                item_price: values.itemPrice,
+                item_inventory: values.itemInventory,
+                item_description: values.itemDescription
+              }}})
               setSubmitting(false)
             }}
             validationSchema={addItemValidation}
@@ -60,7 +93,6 @@ const AddItemForm = () => {
                   <div className='form-field'>
                     <TextField
                       type='text'
-                      id='itemName'
                       name='itemName'
                       label='Item Name'
                       value={values.itemName}
@@ -120,9 +152,57 @@ const AddItemForm = () => {
                         <FormHelperText className='form-helper'>
                         </FormHelperText>
                       )}
-                    </div>
-                    
+                    </div>                    
                   </FormGroup>
+
+                  <div className='form-field'>
+                    <TextField
+                      select
+                      name='itemType'
+                      label='Item Type'
+                      multiline={true}
+                      value={values.itemType}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      margin='normal'
+                    >
+                      {itemTypes.map(option => (
+                        <MenuItem key={option.value} value={option.value}>
+                          {option.label}
+                        </MenuItem>
+                      ))}
+                    </TextField>
+                    {errors.itemType && touched.itemType ? (
+                      <FormHelperText className='form-helper form-error'>
+                        {errors.itemType}
+                      </FormHelperText>
+                    ) : (
+                      <FormHelperText className='form-helper'>
+                      </FormHelperText>
+                    )}
+                  </div>
+
+                  <div className='form-field'>
+                    <TextField
+                      type='text'
+                      name='itemDescription'
+                      label='Item Description'
+                      multiline={true}
+                      value={values.itemDescription}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      margin='normal'
+                    />
+                    {errors.itemDescription && touched.itemDescription ? (
+                      <FormHelperText className='form-helper form-error'>
+                        {errors.itemDescription}
+                      </FormHelperText>
+                    ) : (
+                      <FormHelperText className='form-helper'>
+                      </FormHelperText>
+                    )}
+                  </div>
+
                   <div className='form-field toggle-list-item'>
                     <FormLabel component="label">List item in the marketplace?</FormLabel>
                     <FormControlLabel
@@ -139,12 +219,7 @@ const AddItemForm = () => {
                       label={values.listItem ? 'Yes' : 'No'}
                     />
                   </div>
-                  <div className='form-field'>
-                  
-                  </div>
-                  <div className='form-field'>
-                  
-                  </div>
+
                   <section className='signup-form-btns'>
 										<Button
 											className='btn-submit'
