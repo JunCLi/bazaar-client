@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import { Formik } from 'formik'
 import { loginValidation } from '../validationSchemas'
+import { Redirect } from 'react-router-dom'
 
 import { Mutation } from 'react-apollo'
 import { loginMutation } from '../graphql-queries/mutations'
@@ -18,6 +19,10 @@ const initialFormValues = {
 }
 
 const Signup = () => {
+	const [ redirecting, setRedirecting ] = useState(false)
+
+	if (redirecting) return <Redirect to='/'></Redirect>
+
 	return (
 		<div>
 			<Mutation
@@ -27,6 +32,9 @@ const Signup = () => {
 				}}
 				onCompleted={response => {
 					console.log('Response: ', response)
+					if (response.login.message === 'success') {
+						setRedirecting(true)
+					}
 				}}
 			>
 				{(login) => (

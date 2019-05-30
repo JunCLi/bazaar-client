@@ -3,7 +3,7 @@ import React from 'react'
 import { Query } from 'react-apollo'
 import { getBasicItemsQuery } from '../graphql-queries/queries'
 
-import { GridList, GridListTile, GridListTileBar } from '@material-ui/core';
+import { GridList, GridListTile, GridListTileBar } from '@material-ui/core'
 
 const HomeRecentItems = () => {
   return (
@@ -23,23 +23,22 @@ const HomeRecentItems = () => {
           return (
             <GridList cols={4} cellHeight={300}>
               {mostRecentItems.map(item => (
+                // <BasicGridItem key={item.id} item={item}></BasicGridItem>
                 <GridListTile key={item.id}>
                   <img src='https://via.placeholder.com/300/' alt='stuff'/>
                   <GridListTileBar
                     title={item.item_name}
                     subtitle={<div className='tile-subtitle'>
-                        <span>${item.item_price}</span>
-                        <span>By: {item.item_owner_name}</span>
-                      </div>}
+                      <span>${item.item_price}</span>
+                      <span>By: {item.itemOwner.fullname}</span>
+                    </div>}
                   >
                   </GridListTileBar>
                 </GridListTile>
               ))}
             </GridList>
           )
-        }
-
-        }
+        }}
       </Query>
     </section>
   )

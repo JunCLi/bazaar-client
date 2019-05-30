@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Navbar from './Navbar'
-import AddItemForm from './AddItemForm';
+import AddItemForm from './AddItemForm'
 
 const AddItem = () => {
   return (

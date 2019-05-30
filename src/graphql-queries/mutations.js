@@ -23,3 +23,11 @@ export const addItemMutation = gql`
     }
   }
 `
+
+export const purchaseItemMutation = gql`
+  mutation purchaseItemVars($input: purchaseItemObject!){
+    purchaseItem(input: $input) {
+      message
+    }
+  }
+`

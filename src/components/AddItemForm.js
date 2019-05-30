@@ -45,7 +45,9 @@ const itemTypes = [
   },
 ]
 
-const AddItemForm = () => {
+const AddItemForm = (props) => {
+  const { userId } = props
+  
   return (
     <div>
       <Mutation 
@@ -64,7 +66,7 @@ const AddItemForm = () => {
               const itemStatus = values.listItem ? 'listed' : 'unlisted'
               registerItem({ variables: {input: {
                 item_name: values.itemName,
-                item_owner_id: 1,
+                item_owner_id: userId,
                 item_status: itemStatus,
                 item_type: values.itemType,
                 item_price: values.itemPrice,

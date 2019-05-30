@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 
-// import Button from '@material-ui/core/Button'
-import Tabs from '@material-ui/core/Tabs'
-import Tab from '@material-ui/core/Tab'
+import { Tabs, Tab } from '@material-ui/core'
 
 import Navbar from './Navbar'
 import Signup from './Signup'

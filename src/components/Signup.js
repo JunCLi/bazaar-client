@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import { Formik } from 'formik'
 import { signupValidation } from '../validationSchemas'
+import { Redirect } from 'react-router-dom'
 
 import { Mutation } from 'react-apollo'
 import { signUpMutation } from '../graphql-queries/mutations'
@@ -14,29 +15,40 @@ import '../css/forms.css'
 
 const initialFormValues = {
 	userEmail: '',
+	userFullName: '',
 	password: '',
 	confirmPassword: '',
 }
 
 const Signup = () => {
+	const [ redirecting, setRedirecting ] = useState(false)
+
+	if (redirecting) return <Redirect to='/'></Redirect>
+
 	return (
 		<div>
 			<Mutation
 				mutation={signUpMutation}
 				onError={(error) => {
-					console.log(error)
+					console.log('signup err:', error)
 				}}
 				onCompleted={response => {
-					console.log('Response: ', response)
+					console.log('response:', response)
+
+					if (response.signUp.message === 'success') {
+						setRedirecting(true)
+					}
 				}}
 			>
 				{(signUp) => (
 					<Formik
 						initialValues={initialFormValues}
 						onSubmit={(values, { setSubmitting }) => {
+							console.log(values)
 							signUp({ variables: {input: {
 								email: values.userEmail,
-								password: values.password
+								fullname: values.userFullName,
+								password: values.password,
 							}}})
 							setSubmitting(false)
 						}}
@@ -71,6 +83,27 @@ const Signup = () => {
 										{errors.userEmail && touched.userEmail ? (
 											<FormHelperText className='form-helper form-error'>
 												{errors.userEmail}
+											</FormHelperText>
+										) : (
+											<FormHelperText className='form-helper'>
+											</FormHelperText>
+										)}
+									</div>
+
+									<div className='form-field'>
+										<TextField
+											type='text'
+											id='userFullName'
+											name='userFullName'
+											label='Full Name'
+											value={values.userFullName}
+											onChange={handleChange}
+											onBlur={handleBlur}
+											margin='normal'
+											/>
+										{errors.userFullName && touched.userFullName ? (
+											<FormHelperText className='form-helper form-error'>
+												{errors.userFullName}
 											</FormHelperText>
 										) : (
 											<FormHelperText className='form-helper'>
